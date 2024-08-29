@@ -4,7 +4,7 @@ let randomNumber;
 const startGame = (req, res) => {
   randomNumber = Math.floor(Math.random() * 10) + 1; 
   console.log(`Згенероване число: ${randomNumber}`); 
-  res.json({ message: 'Гра розпочата! Вгадайте число від 1 до 10.' });
+  res.send({ message: 'Гра розпочата! Вгадайте число від 1 до 10.' });
 }
 
 const guessGame = (req, res) => {
@@ -20,11 +20,11 @@ const guessGame = (req, res) => {
   }
 
   if (playerGuess < randomNumber) {
-    return res.json({ message: 'Більше' });
+    res.send({ message: 'Загадане число більше' });
   } else if (playerGuess > randomNumber) {
-    return res.json({ message: 'Менше' });
+    res.send({ message: ' Загадане число меньше' });
   } else {
-    return res.json({ message: 'Вгадано!' });
+    res.send({ message: 'Число вгадано'  });
   }
 }
   export default { startGame, guessGame }
