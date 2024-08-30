@@ -9,9 +9,6 @@ const startGame = (req, res) => {
 
 const guessGame = (req, res) => {
   const { guess } = req.body; 
-  if (!guess) {
-    return res.status(400).json({ message: 'Будь ласка, надайте число.' });
-  }
 
   const playerGuess = parseInt(guess, 10);
 

@@ -14,7 +14,11 @@ app.post('/webhook', (req, res) => {
 
 app.use('/api', gameRouter) 
 
-
+app.use((req, res) => {
+	res.status(404).json({
+		message: 'Not found',
+	})
+})
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.status || 500).json({
